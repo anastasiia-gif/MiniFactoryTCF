@@ -46,6 +46,6 @@ Contains all software-related files for the project.
 
 ---
 
-## 🏢 BoschRexroth Folder
+## 🏢 BoschRexroth USB
 
-Contains all original files, configurations, and training materials provided by Bosch Rexroth during system onboarding and technical workshops.
+Request Bosch Rexroth USB stick with all the files from previous students how was working on this project
