@@ -48,4 +48,4 @@ Contains all software-related files for the project.
 
 ## 🏢 BoschRexroth USB
 
-Request Bosch Rexroth USB stick with all the files from previous students how was working on this project
+Request Bosch Rexroth USB stick with all the files from previous students how was working on this project. All the other files that were provided to us during training at Bosch Rexroth are uploaded in Bosch RTexroth folder
