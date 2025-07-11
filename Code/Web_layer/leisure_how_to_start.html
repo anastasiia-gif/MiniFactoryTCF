@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <p id="leisure_how_to_start"></p>
+        <img id="leisure_how_to_start_img" src="pictures/cool_box.png" />
+        <img id="box_deposit_how_to_start" src="pictures/box_deposit.png" />
+        <img id="button_control_how_to_start" src="pictures/button_control.png" />
+        <img id="row_how_to_start1" src="pictures/arrow.png" />
+        <img id="row_how_to_start2" src="pictures/arrow.png" />
+        <a href="#" onclick="goWithTransition('welcome_pneumatics.html')">
+        <span id="next_button">Next</span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

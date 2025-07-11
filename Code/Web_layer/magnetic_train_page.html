@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <p id="magnetic_train_page"></p>
+        <img id="magnet_line" src="pictures/linear_mover.png" />
+        <img id="row_magnetic_train" src="pictures/arrow.png" />
+        <img id="magnetic_train" src="pictures/magnetic_train.png" />
+    <a href="#" onclick="goWithTransition('H_P_press.html')">
+        <span id="next_button"></span>
+        </a>`
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

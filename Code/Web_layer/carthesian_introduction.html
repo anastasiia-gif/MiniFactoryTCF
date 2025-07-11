@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <img id="carthesian_introduction_img1" src="pictures/arrow.png" />
+        <img id="carthesian_introduction_img2" src="pictures/arrow.png" />
+        <img id="carthesian_introduction_img3" src="pictures/arrow.png" />
+        <p id="carthesian_introduction1"></p>
+        <p id="carthesian_introduction2"></p>
+        <p id="carthesian_introduction3"></p>
+        <p id="carthesian_introduction4"></p>
+        <p id="carthesian_introduction5"></p>
+        <div class="arm-container" id="carthesian_introduction_arm_container">
+            <div class="vertical-cylinder"></div>
+            <div class="horizontal-cylinder"></div>
+            <div class="horizontal-rod"></div>
+            <div class="vertical-rod"></div>
+            <div class="black-block"></div>
+            <div class="press-block" id="pick_and_place_automation_press_block"></div>
+        </div>
+        <a href="carthesian_quiz.html">
+        <span id="next_button"></span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

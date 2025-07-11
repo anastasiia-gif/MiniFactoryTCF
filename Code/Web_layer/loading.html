@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color:#bd6b2f ;
+      color: #2d2d2d;
+      font-family: 'Inria Sans', sans-serif;
+      overflow: hidden;
+    }
+
+    .loading-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .conveyor {
+      position: absolute;
+      bottom: 100px;
+      width: 100%;
+      height: 60px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #444 0px,
+        #444 10px,
+        #555 10px,
+        #555 20px
+      );
+      animation: conveyorMove 1s linear infinite;
+    }
+
+    .box {
+      width: 100px;
+      height: 80px;
+      background-color: #8b4513;
+      border: 3px solid #5c3317;
+      position: absolute;
+      bottom: 120px;
+      left: -120px;
+      animation: boxMove 5s forwards ease-in-out;
+      z-index: 2;
+    }
+
+    .arm {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      background-image: url("pictures/robot_arm.png"); /* you can design a cartoon arm */
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: armDrop 2s infinite;
+      z-index: 3;
+    }
+
+    .loading-text {
+      margin-top: 200px;
+      font-size: 2rem;
+      animation: pulse 2s infinite;
+      z-index: 4;
+    }
+
+    #logo_loading{
+      position: absolute;
+      top: 30px;
+      left: 30px;
+    }
+
+    @keyframes conveyorMove {
+      from { background-position: 0 0; }
+      to { background-position: 40px 0; }
+    }
+
+    @keyframes boxMove {
+      0% { left: -120px; }
+      100% { left: 100vw; }
+    }
+
+    @keyframes armDrop {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(30px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <img src="pictures/logo.png" id="logo_loading"/>
+    <div class="arm"></div>
+    <div class="box"></div>
+    <div class="conveyor"></div>
+    <div class="loading-text">Loading your chocolate task...</div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const target = params.get('target');
+
+    // Go to next page after 5 seconds
+    setTimeout(() => {
+      if (target) {
+        window.location.href = target;
+      } else {
+        document.body.innerHTML = "Error: no target URL provided.";
+      }
+    }, 10000);
+  </script>
+</body>
+</html>

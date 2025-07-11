@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <p id="winner_award"></p>
+        <img id="box_winner1" src="pictures/happy_box.png" />
+        <img id="box_winner2" src="pictures/lovely_box.png" />
+        <img id="box_winner3" src="pictures/smart_box.png" />
+        <img id="box_winner4" src="pictures/sad_box.png" />
+        <img id="box_winner5" src="pictures/angry_box.png" />
+        <img id="box_winner6" src="pictures/calm_box.png" />
+        <img id="box_winner7" src="pictures/confused_box.png" />
+        <img id="box_winner8" src="pictures/cool_box.png" />
+        <img id="box_winner9" src="pictures/exited_box.png" />
+        <img id="winner_award_img" src="pictures/award.png" />
+    <a href="#" onclick="goWithTransition('menu.html')">
+        <span id="next_button"></span>
+        </a>`
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

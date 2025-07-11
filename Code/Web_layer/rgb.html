@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <img id="rgb_img1" src="pictures/RGB.png" />
+        <p id="rgb_1"></p>
+        <div class="container">
+  <div class="container">
+  <div class="column colors">
+    <div class="color-box" data-color="rgb(255,108,0)" style="background-color: rgb(255,108,0);"></div>
+    <div class="color-box" data-color="rgb(255,51,153)" style="background-color: rgb(255,51,153);"></div>
+    <div class="color-box" data-color="rgb(51,51,255)" style="background-color: rgb(51,51,255);"></div>
+    <div class="color-box" data-color="rgb(0,0,0)" style="background-color: rgb(0,0,0);"></div>
+  </div>
+
+  <div class="column answers">
+    <div class="drop-zone" data-accept="rgb(255,108,0)"></div>
+    <div class="drop-zone" data-accept="rgb(255,51,153)"></div>
+    <div class="drop-zone" data-accept="rgb(51,51,255)"></div>
+    <div class="drop-zone" data-accept="rgb(0,0,0)"></div>
+  </div>
+
+
+<div class="draggables">
+  <p class="draggable" draggable="true" data-color="rgb(255,108,0)">rgb(255,108,0)</p>
+  <p class="draggable" draggable="true" data-color="rgb(255,51,153)">rgb(255,51,153)</p>
+  <p class="draggable" draggable="true" data-color="rgb(51,51,255)">rgb(51,51,255)</p>
+  <p class="draggable" draggable="true" data-color="rgb(0,0,0)">rgb(0,0,0)</p>
+</div>
+</div>
+
+
+        <a href="#" onclick="goWithTransition('pneumatic_sucktion.html')">
+        <span id="next_button"></span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+const draggables = document.querySelectorAll('.draggable');
+const dropZones = document.querySelectorAll('.drop-zone');
+
+let draggedItem = null;
+
+draggables.forEach(item => {
+  item.addEventListener('dragstart', (e) => {
+    draggedItem = item;
+    e.dataTransfer.setData('text/plain', item.dataset.color);
+    setTimeout(() => {
+      item.style.display = 'none'; // Hide original while dragging
+    }, 0);
+  });
+
+  item.addEventListener('dragend', () => {
+    draggedItem = null;
+  });
+});
+
+dropZones.forEach(zone => {
+  zone.addEventListener('dragover', e => e.preventDefault());
+
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    const color = e.dataTransfer.getData('text/plain');
+    
+    // Remove previous child if exists
+    if (zone.firstChild) {
+      zone.removeChild(zone.firstChild);
+    }
+
+    // Move dragged item into drop zone
+    zone.appendChild(draggedItem);
+draggedItem.style.display = 'block'; // move this AFTER appendChild
+
+    draggedItem.setAttribute('draggable', 'false'); // Disable further dragging
+    draggedItem.style.cursor = 'default';
+
+    zone.dataset.given = color;
+
+    checkAnswers();
+  });
+});
+
+function checkAnswers() {
+  const allFilled = [...dropZones].every(zone => zone.dataset.given);
+  if (!allFilled) return;
+
+  dropZones.forEach(zone => {
+    const correct = zone.dataset.accept;
+    const given = zone.dataset.given;
+    zone.classList.remove('correct', 'incorrect');
+    if (correct === given) {
+      zone.classList.add('correct');
+    } else {
+      zone.classList.add('incorrect');
+    }
+  });
+}
+</script>
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

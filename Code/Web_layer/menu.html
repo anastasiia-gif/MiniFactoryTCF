@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <div id="comuln_divider">
+        <div class="column">
+            <img id="robotic_arm" src="pictures/robotic_arm.png" />
+            <div id="menu_container">
+                <p class="menu_objects" id="menu_object1"><a href="#"></a></p>
+                <p class="menu_objects" id="menu_object2"><a href="introduction_leisure.html"></a></p>
+                <p class="menu_objects" id="menu_object3"><a href="#"></a></p>
+            </div>
+            <a href="index.html"><span id="back_main_screen_menu"></span></a>
+        </div>
+        <div class="column">
+        <div id="circle_container">
+             <div class="circle_button"></div>
+             <div class="circle_button"></div>
+             <div class="circle_button"></div>
+        </div>
+        <div id="Choose_level_container">
+        <span id="Choose_your_level"></span>
+        <span id="Choose_your_leve1"></span>
+        </div>
+    </div>
+    
+    </div>
+
+    <script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

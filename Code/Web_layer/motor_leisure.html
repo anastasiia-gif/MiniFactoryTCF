@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anas`tasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <p id="motor_leisure"></p>
+        <div id="player-container">
+    <div id="player-overlay"></div>
+    <div id="player"></div>
+  </div>
+    <a href="#" onclick="goWithTransition('sensor_leisure.html')">
+        <span id="next_button"></span>
+        </a>`
+
+  <script>
+    let player;
+    let controlsVisible = false;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '100%',
+        width: '100%',
+        videoId: 'LB1eduRwu8Y',
+        playerVars: {
+          'autoplay': 1,
+          'controls': 0,
+          'start': 40, // ⏱ start at 1 minute
+          'finish': 240,
+          'cc_load_policy': 1, // force captions on
+          'modestbranding': 1,
+          'rel': 0
+        },
+        events: {
+          'onReady': (event) => {
+            event.target.playVideo();
+          }
+        }
+      });
+    }
+
+    document.getElementById("player-overlay").addEventListener("click", () => {
+      if (!controlsVisible) {
+        controlsVisible = true;
+        player.destroy(); // Recreate with controls
+        player = new YT.Player('player', {
+          height: '100%',
+          width: '100%',
+          videoId: 'LB1eduRwu8Y',
+          playerVars: {
+            'autoplay': 1,
+            'controls': 1,
+            'start': 60,
+            'cc_load_policy': 1
+          }
+        });
+        document.getElementById("player-overlay").remove();
+      }
+    });
+
+    // Load the YouTube Iframe API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+  </script>
+  
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

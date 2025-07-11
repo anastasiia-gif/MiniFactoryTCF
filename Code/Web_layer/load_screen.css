@@ -1,0 +1,81 @@
+/* --- Loading Screen Styling --- */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+#loading-screen.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Box Container for Scaling */
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: scale(2);
+  margin: 40px auto;
+  z-index: 120;
+}
+
+/* Box Base */
+.box {
+  width: 100px;
+  height: 70px;
+  background-color: #d79d62;
+  border: 3px solid #b07036;
+  position: relative;
+  z-index: 2;
+}
+
+/* Box Flaps */
+.flap {
+  position: absolute;
+  width: 50%;
+  height: 20px;
+  background-color: #e1b07a;
+  top: -20px;
+  transform-origin: bottom;
+  animation: flapClose 1s infinite alternate;
+}
+
+.flap-left {
+  left: 0;
+  border-right: 2px solid #b07036;
+  animation-delay: 0s;
+}
+
+.flap-right {
+  right: 0;
+  border-left: 2px solid #b07036;
+  animation-delay: 0.5s;
+}
+
+@keyframes flapClose {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(75deg);
+  }
+}
+
+/* Optional: Text under box */
+.box-container p {
+  color: white;
+  margin-top: 20px;
+  font-size: 1rem;
+}

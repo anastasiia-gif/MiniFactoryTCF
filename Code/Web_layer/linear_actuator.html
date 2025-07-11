@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <img id="linear_actuator_img1" src="pictures/exited_box.png" />
+        <img id="linear_actuator_img2" src="pictures/arrow.png" />
+
+        <p id="linear_actuator1"></p>
+
+        
+  <div class="beam"></div>
+<div class="actuator-container" id="actuator">
+  <div class="mount"></div>
+
+  <div class="cylinder-body">
+    <div class="v-stripe stripe1"></div>
+    <div class="v-stripe stripe2"></div>
+    <div class="v-stripe stripe3"></div>
+  </div>
+
+  <div class="cup"></div>
+</div>
+
+
+        <a href="magnetic_train_page.html">
+        <span id="next_button"></span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('actuator').classList.add('move-right');
+    }, 3000); // 3 seconds delay
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="load_screen.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="loading-screen">
+  <div class="box-container">
+    <div class="box">
+      <div class="flap flap-left"></div>
+      <div class="flap flap-right"></div>
+    </div>
+    <p>Loading... Packing box...</p>
+  </div>
+</div>
+
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+function showLoading(callback) {
+  const loader = document.getElementById("loading-screen");
+  loader.classList.add("show");
+
+  setTimeout(() => {
+    loader.classList.remove("show");
+    callback(); // e.g. load next screen
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
+

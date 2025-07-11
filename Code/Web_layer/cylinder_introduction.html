@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <img id="cylinder_introduction_img1" src="pictures/arrow.png" />
+        <img id="cylinder_introduction_img2" src="pictures/arrow.png" />
+        <p id="cylinder_introduction"></p>
+        <p id="cylinder_introduction1"></p>
+        <p id="cylinder_introduction2"></p>
+        <p id="cylinder_introduction3"></p>
+        <p id="cylinder_introduction4"></p>
+
+        <div class="cylinder-container1" id="cylinder1">
+                <div class="rod1" id="cylinder1_rod1">
+                <div class="cup1"></div>
+                </div>
+                <div class="cylinder-body1">
+                <div class="stripe top1"></div>
+                <div class="stripe bottom1"></div>
+                </div>
+            </div>
+
+
+          <div class="cylinder-container2">
+  <div class="rod2">
+    <div class="cup2"></div>
+  </div>
+  <div class="cylinder-body2" id="cylinder2">
+    <div class="cut-window">
+      <div class="inner-rod2"><div class="cup_inside"></div></div>
+      
+    </div>
+  </div>
+</div>
+
+        <a href="cylinder_introduction_2.html" onclick="goWithTransition('conveyor_leisure.html')">
+        <span id="next_button"></span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.querySelector(".cylinder-with-window").classList.add("animate");
+    }, 5000); // Move after 5 seconds
+  });
+</script>
+
+
+</body>
+</html>

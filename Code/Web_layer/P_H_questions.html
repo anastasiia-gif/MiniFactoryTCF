@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <div class="image-answers">
+  <div class="image-option">
+    <input type="checkbox" class="answer-checkbox">
+    <img src="pictures/plastic_cup.png" alt="Wrong answer"> 
+  </div>
+  <div class="image-option">
+    <input type="checkbox" class="answer-checkbox">
+    <img src="pictures/cnc_door.png" alt="correct answer">
+  </div>
+  <div class="image-option corect">
+    <input type="checkbox" class="answer-checkbox">
+    <img src="pictures/shaping_metal.jpg" alt="Wrong answer">
+  </div>
+  <div class="image-option corect">
+    <input type="checkbox" class="answer-checkbox">
+    <img src="pictures/beam_lifting.png" alt="correct answer">
+  </div>
+</div>
+
+<div class="check-container">
+  <button class="check-button" id="check-button"></button>
+</div>
+
+        <p id="P_H_questions"></p>
+
+        <a href="#" onclick="goWithTransition('conclusion_leisure.html')">
+        <span id="next_button"></span>
+        </a>
+    </div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+  document.querySelector('.check-button').addEventListener('click', function () {
+    const options = document.querySelectorAll('.image-option');
+
+    options.forEach(option => {
+      const isChecked = option.querySelector('.answer-checkbox').checked;
+      const isCorrect = option.classList.contains('corect');
+
+      // Reset styles first
+      option.style.borderColor = "#ccc";
+      option.style.backgroundColor = "";
+
+      // Logic to highlight answers
+      if (isCorrect && isChecked) {
+        option.style.borderColor = "green";
+        option.style.backgroundColor = "#d4f7d4";
+      } else if (isCorrect && !isChecked) {
+        option.style.borderColor = "red";
+        option.style.backgroundColor = "#f8d2d2";
+      } else if (!isCorrect && isChecked) {
+        option.style.borderColor = "red";
+        option.style.backgroundColor = "#f8d2d2";
+      }
+    });
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

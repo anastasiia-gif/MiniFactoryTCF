@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <img id="dergees_quiz_page_img" src="pictures/degrees-360.svg" />
+        <p id="degrees_quiz_page"></p>
+             <div class="quiz-container" id="quiz">
+    <!-- Answers go here dynamically -->
+  </div>
+  <button class="check-btn" onclick="checkAnswers()">Check</button>
+  <div class="result" id="result"></div>
+  <div class="box"></div>
+  <img src="pictures/arrow.png" id="row_degrees_quiz_page" />
+        <a href="#" onclick="goWithTransition('pin_placing_page.html')">
+        <span id="next_button">Next</span>
+        </a>
+    </div>
+
+
+
+  <script>
+    const answers = [
+      { text: " 30°", correct: false },
+      { text: " 45°", correct: false },
+      { text: " 90°", correct: true },
+      { text: " 180°", correct: false }
+    ];
+
+    // Shuffle answers
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    // Render answers into the quiz container
+    function renderQuiz() {
+      const quiz = document.getElementById('quiz');
+      quiz.innerHTML = '';
+      shuffle(answers).forEach((answer, index) => {
+        const div = document.createElement('div');
+        div.className = 'answer';
+        div.innerHTML = `
+          <input type="checkbox" id="answer-${index}" data-correct="${answer.correct}">
+          <label for="answer-${index}">${answer.text}</label>
+        `;
+        quiz.appendChild(div);
+      });
+    }
+
+    function checkAnswers() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      let allCorrect = true;
+
+      checkboxes.forEach(checkbox => {
+        const parent = checkbox.parentElement;
+        const isCorrect = checkbox.dataset.correct === "true";
+        const isChecked = checkbox.checked;
+
+        // Remove old styles
+        parent.classList.remove('correct', 'incorrect');
+
+        if (isCorrect && isChecked) {
+          parent.classList.add('correct');
+        } else if (!isCorrect && isChecked) {
+          parent.classList.add('incorrect');
+          allCorrect = false;
+        } else if (isCorrect && !isChecked) {
+          parent.classList.add('incorrect');
+          allCorrect = false;
+        }
+      });
+
+      const result = document.getElementById('result');
+      result.textContent = allCorrect ? "Good job!" : "Next time would be better.";
+    }
+
+    // Initialize quiz
+    renderQuiz();
+  </script>
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>

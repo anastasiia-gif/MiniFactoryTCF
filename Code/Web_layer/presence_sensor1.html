@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anas`tasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="content">
+        <img id="background_image" src="pictures/skyline.png" />
+        <p id="presence_sensor1"></p>
+        <div class="scene">
+  <!-- Pistons -->
+  <div class="pistons">
+    <!-- Left piston -->
+    <div class="piston" id="piston1">
+      <div class="stripe" id="stripe1"></div>
+      <div class="stripe" id="stripe2"></div>
+      <div class="stripe" id="stripe3"></div>
+      <div class="arrow red_sensor1"></div>
+    </div>
+
+    <!-- Right piston -->
+    <div class="piston" id="not_visible">
+      <div class="stripe" id="stripe1"></div>
+      <div class="stripe" id="stripe2"></div>
+      <div class="stripe" id="stripe3"></div>
+      <div class="arrow black"></div>
+    </div>
+  </div>
+
+  <!-- Box -->
+  <div class="box_presence_sensor1"></div>
+
+  <!-- Platform -->
+  <div class="platform"></div>                                                              
+
+  <!-- Info Panel -->
+  <div class="info-panel">
+    <div class="info-box">
+      <div class="circle_green"></div>
+      <span id="Nothing"></span>
+    </div>
+  </div>
+</div>
+  </div>
+    <a href="presense_sensor2.html">
+        <span id="next_button"></span>
+        </a>`
+  
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+</body>
+</html>

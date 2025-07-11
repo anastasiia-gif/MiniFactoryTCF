@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="content">
+    <div id="floor"></div>
+    <img id="forklift" src="pictures/forklift.png" />
+    <div id="box"></div>
+    <div id="lamps_div">
+        <img id="lamps" src="pictures/lamps.png" />
+    </div>
+    <span id="start_prompt"></span>
+    <span id="start_prompt1"></span>
+
+    <div class="dot" id="dot-1"></div>
+    <div class="dot" id="dot-2"></div>
+    <div class="dot" id="dot-3"></div>
+</div>
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+<script>
+document.body.addEventListener("click", startExitAnimation);
+
+function startExitAnimation() {
+    const duration = 1500; // ms — total time to reach right side
+
+    const elements = [
+        { id: 'forklift', speed: 1 },
+        { id: 'box', speed: 1.5 },
+        { id: 'lamps_div', speed: 0.8 },
+        { id: 'start_prompt', speed: 1.2 },
+        { id: 'start_prompt1', speed: 1.1 },
+        { id: 'dot-1', speed: 1.6 },
+        { id: 'dot-2', speed: 1.3 },
+        { id: 'dot-3', speed: 0.9 }
+    ];
+
+    elements.forEach(item => {
+        const el = document.getElementById(item.id);
+        if (el) {
+            const moveDistance = 100 * item.speed; // relative to speed
+            el.style.transition = `transform ${duration}ms ease-in`;
+            el.style.transform = `translateX(${moveDistance}vw)`;
+        }
+    });
+
+    // Disable further clicks
+    document.body.removeEventListener("click", startExitAnimation);
+
+    // Go to next page after animation finishes
+    setTimeout(() => {
+        goWithTransition('safety_introduction.html');
+    }, duration + 100); // small buffer
+}
+</script>
+<script>
+function goWithTransition(targetUrl) {
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+
+</body>
+</html>

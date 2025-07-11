@@ -1,0 +1,260 @@
+/* General */
+p{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 75%;
+    height: auto;
+    padding: 10px;
+    background: #EBEAEA;
+    font-size: 18px;
+    font-family: 'Inria Sans';
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+strong, b {
+  font-weight: 700;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 200px solid #EBEAEA; /* Color of triangle */
+}
+
+
+/* safety_introduction_page */
+#box_safety_introduction {
+    position: absolute;
+    top: 350px;
+    left: 800px;
+    z-index: 4;
+    height: 300px;
+    animation: MoveUpDown 5s infinite;
+}
+
+#skip_button{
+    font-size: 100px;
+    top: 570px;
+    left: 1100px;
+    animation: pulse 5s infinite;
+}
+
+#skip_button1{
+    font-size: 24px;
+    top: 680px;
+    left: 1110px;
+    animation: pulse 5s infinite;
+}
+
+#safety_introduction_triangle {
+    position: absolute;
+    top: 200px;
+    left: 700px;
+}
+
+/* safety_button_controller */
+#button_safety_buttoncontroller{
+    position: absolute;
+    top: 50px;
+    left: 500px;
+    z-index: 4;
+    height: 750px;
+}
+
+/* box_deposit_page */
+#box_deposit_page{
+    top: 100px;
+    left: 100px;
+    width: 35%;
+}
+#box_deposit_img {
+    position: absolute;
+    top: 80px;
+    left: 900px;
+    height: 600px;
+    z-index: 4;
+}
+#box_deposit_1{
+    position: absolute;
+    width: auto;
+    top: 30px;
+    left: 800px;
+    z-index: 6;
+}
+#box_deposit_2{
+    position: absolute;
+    width: auto;
+    top: 300px;
+    left: 650px;
+    z-index: 6;
+}
+#box_deposit_3{
+    position: absolute;
+    width: auto;
+    top: 400px;
+    left: 650px;
+    z-index: 6;
+}
+#raw_1_box_deposit{
+    position: absolute;
+    transform: scale(1, -1);
+    top: 30px;
+    left: 900px;
+    z-index: 5;
+}
+#raw_2_box_deposit{
+    position: absolute;
+    transform: scale(1, -1);
+    top: 300px;
+    left: 900px;
+    z-index: 5;
+}
+#raw_3_box_deposit{
+    position: absolute;
+    transform: scale(1, -1);
+    top: 400px;
+    left: 900px;
+    z-index: 5;
+}
+
+/* emergency_button_page */
+#emergency_box_img{
+    position: absolute;
+    height: 500px;
+    top: 200px;
+    left: 400px;
+    z-index: 4;
+}
+#emergency_button_page1{
+    position: absolute;
+    top: 400px;
+    left: 950px;
+    width: 25%;
+    z-index: 4;
+}
+
+/* safety_doors_page */
+#safety_door_page1{
+    position: absolute;
+    top: 400px;
+    left: 1000px;
+    width: 25%;
+    z-index: 4;
+}
+
+#raw_safety_door{
+    position: absolute;
+    top: 400px;
+    left: 800px;
+    z-index: 6;
+    transform: scale(-1, 1);
+}
+
+/* safety_gear_page */
+#safety_gear_page1{
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    width: 25%;
+    z-index: 4;
+}
+#safety_gear_page2{
+    position: absolute;
+    top: 300px;
+    left: 1000px;
+    width: 25%;
+    z-index: 4;
+}
+#safety_gear_page3{
+    position: absolute;
+    top: 450px;
+    left: 50px;
+    width: 25%;
+    z-index: 4;
+}
+#safety_gear_page4{
+    position: absolute;
+    top: 600px;
+    left: 1000px;
+    width: 25%;
+    z-index: 4;
+}
+
+#safety_gear_page_img1{
+    position: absolute;
+    top: 150px;
+    left: 500px;
+    width: 200px;
+    z-index: 4;
+}
+#safety_gear_page_img2{
+    position: absolute;
+    top: 200px;
+    left: 750px;
+    width: 300px;
+    z-index: 4;
+}
+#safety_gear_page_img3{
+    position: absolute;
+    top: 450px;
+    left: 500px;
+    width: 200px;
+    z-index: 4;
+}
+#safety_gear_page_img4{
+    position: absolute;
+    top: 570px;
+    left: 730px;
+    width: 250px;
+    z-index: 4;
+}
+
+
+/* conclusion safety page */
+#conclusion_safety1{
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    width: auto;
+    z-index: 4;
+}
+#conclusion_safety2{
+    position: absolute;
+    top: 550px;
+    left: 950px;
+    width: auto;
+    z-index: 4;
+}
+#conclusion_safety3{
+    position: absolute;
+    top: 200px;
+    left: 550px;
+    width: auto;
+    z-index: 4;
+}
+#conclusion_safety4{
+    position: absolute;
+    top: 300px;
+    left: 1000px;
+    width: auto;
+    z-index: 4;
+}
+#conclusion_safety5{
+    position: absolute;
+    top: 600px;
+    left: 400px;
+    width: auto;
+    z-index: 4;
+}
+#conclusion_safety_img{
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    width: 400px;
+    z-index: 4;
+}

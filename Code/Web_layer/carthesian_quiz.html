@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<head>
+    <title>Mini Factory</title>
+
+    <link rel="stylesheet" href="delete_browser_default.css">
+    <link rel="stylesheet" href="custom_css.css">
+    <link rel="stylesheet" href="leisure_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Irish Grover' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Anastasiia Polimasheva">
+    <meta charset="UTF-8">
+</head>
+<body>
+<img id="background_image" src="pictures/skyline.png" />
+        <p id="cathesian_quiz"></p>
+        <a href="#" onclick="goWithTransition('communication_introduction.html')">
+        <span id="next_button">Next</span>
+        </a>
+  <p id="question">(x, y)</p>
+  <div id="status"></div>
+  <button id="next-btn"></button>
+
+  <div id="game-container">
+    <div id="grid-wrapper">
+      <div id="y-labels"></div>
+      <div id="grid"></div>
+    </div>
+    <div id="x-labels"></div>
+  </div>
+
+  
+
+  <script>
+    const grid = document.getElementById('grid');
+    const question = document.getElementById('question');
+    const nextBtn = document.getElementById('next-btn');
+    const status = document.getElementById('status');
+    const xLabels = document.getElementById('x-labels');
+    const yLabels = document.getElementById('y-labels');
+
+    const cellSize = 60;
+    const numCols = 10;
+    const numRows = 10;
+
+    const questions = [
+      { x: 2, y: 3 },
+      { x: 7, y: 6 },
+      { x: 4, y: 1 },
+      { x: 0, y: 0 }
+    ];
+
+    let currentQuestion = 0;
+    let clicked = false;
+
+    function showQuestion() {
+      const q = questions[currentQuestion];
+      question.textContent = `Click: (${q.x}, ${q.y})`;
+      status.textContent = '';
+      clearGrid();
+      drawAxisLabels();
+      clicked = false;
+    }
+
+    function drawAxisLabels() {
+      xLabels.innerHTML = '';
+      yLabels.innerHTML = '';
+
+      for (let i = 0; i < numCols; i++) {
+        const span = document.createElement('span');
+        span.textContent = i;
+        xLabels.appendChild(span);
+      }
+
+      for (let j = 0; j < numRows; j++) {
+        const div = document.createElement('div');
+        div.textContent = j;
+        div.style.top = `${(numRows - 1 - j) * cellSize}px`;
+        yLabels.appendChild(div);
+      }
+    }
+
+    function clearGrid() {
+      grid.innerHTML = '';
+    }
+
+    function markPoint(x, y, className) {
+      const marker = document.createElement('div');
+      marker.classList.add('marker', className);
+      marker.style.left = `${x * cellSize + cellSize / 2}px`;
+      marker.style.top = `${(numRows - 1 - y) * cellSize + cellSize / 2}px`;
+      grid.appendChild(marker);
+    }
+
+    function handleClick(event) {
+      if (clicked || currentQuestion >= questions.length) return;
+
+      const rect = grid.getBoundingClientRect();
+      const x = Math.floor((event.clientX - rect.left) / cellSize);
+      const y = numRows - 1 - Math.floor((event.clientY - rect.top) / cellSize);
+
+      const correct = questions[currentQuestion];
+
+      if (x === correct.x && y === correct.y) {
+        markPoint(x, y, 'correct');
+        status.textContent = '✅ Correct!';
+        nextBtn.style.display = 'inline-block';
+      } else {
+        markPoint(x, y, 'incorrect');
+        markPoint(correct.x, correct.y, 'target');
+        status.textContent = `❌ Incorrect. Correct point: (${correct.x}, ${correct.y})`;
+        nextBtn.style.display = 'inline-block';
+      }
+
+      clicked = true;
+    }
+
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion >= questions.length) {
+        question.textContent = '🎉 Game complete!';
+        status.textContent = '';
+        nextBtn.style.display = 'none';
+        clearGrid();
+        xLabels.innerHTML = '';
+        yLabels.innerHTML = '';
+      } else {
+        showQuestion();
+        nextBtn.style.display = 'none';
+      }
+    }
+
+    grid.addEventListener('click', handleClick);
+    nextBtn.addEventListener('click', nextQuestion);
+
+    showQuestion();
+  </script>
+
+
+<script src="loadTemplate.js"></script>
+<script src="lang.js"></script>
+<script>loadLanguage();</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<script>
+function goWithTransition(targetUrl) {
+    // Go to loading.html and pass the real target URL as a query parameter
+    window.location.href = `loading.html?target=${encodeURIComponent(targetUrl)}`;
+}
+</script>
+
+</body>
+</html>
