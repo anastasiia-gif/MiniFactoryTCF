@@ -60,6 +60,7 @@ span, label{
     top: 50px;
     right: 250px;
     position: fixed;
+  z-index: 5;
 }
 #language img:first-child {
     height: 100px;
@@ -103,13 +104,17 @@ span, label{
 
 /* learning mode pages */
 #background_image {
-    z-index: 1;
-    width: 100%;
+    bottom: 0px;
+    right: 0px;
+    width: 150%;
+    height: 500px;
+    z-index: 0;
     position: absolute;
     height: auto;
     bottom: 0px;
     opacity: 0.5;
 }
+
 #next_button{
     font-size: 100px;
     top: 600px;
